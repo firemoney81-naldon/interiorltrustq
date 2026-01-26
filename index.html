@@ -1,23 +1,520 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "안산 인테리어 시공 및 견적 서비스",
+      "provider": {
+        "@type": "Organization",
+        "name": "안산 인테리어 전문가 그룹",
+        "url": "https://yourdomain.com",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+82-10-1234-5678",
+          "contactType": "고객 서비스"
+        }
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "경기도 안산시"
+      },
+      "description": "안산 지역 아파트, 주택, 상업 공간 인테리어 시공 및 리모델링 전문. 합리적인 가격과 투명한 견적, 2026년 최신 트렌드를 반영한 맞춤형 디자인을 제공합니다.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "안산 인테리어 서비스 종류",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "안산 아파트 전체 리모델링"
+            },
+            "price": "10000000",
+            "priceCurrency": "KRW",
+            "description": "아파트 전체 공간에 대한 맞춤형 디자인 및 시공 서비스 (20평대 기준)"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "안산 부분 인테리어"
+            },
+            "price": "3000000",
+            "priceCurrency": "KRW",
+            "description": "도배, 장판, 주방, 욕실 등 특정 공간만 리모델링하는 실속형 서비스"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "안산 상업 공간 인테리어"
+            },
+            "price": "30000000",
+            "priceCurrency": "KRW",
+            "description": "상가, 사무실, 카페 등 상업 시설의 컨셉 디자인 및 시공 서비스"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <style>
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.8;
+        background-color: #f7f9fc; /* Soft background color */
+        color: #333;
+      }
+      header {
+        background-color: #fcfcfc; /* White header for a clean look */
+        border-bottom: 2px solid #e0e6ec;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      header h1 {
+        color: #2c3e50; /* Dark blue/gray for prominence */
+        font-size: 2.2rem;
+        margin: 0;
+      }
+      header h1 a {
+        text-decoration: none;
+        color: inherit;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+      nav a {
+        color: #555;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: color 0.3s ease, border-bottom 0.3s ease;
+        padding-bottom: 5px;
+      }
+      nav a:hover {
+        color: #3498db; /* Blue highlight on hover */
+        border-bottom: 2px solid #3498db;
+      }
+      main {
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        background-color: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Soft shadow */
+        border-radius: 12px;
+      }
+      section {
+        padding: 2rem;
+        border-bottom: 1px dashed #e0e0e0;
+      }
+      section:last-child {
+        border-bottom: none;
+      }
+      h2 {
+        color: #34495e; /* Subheading color */
+        font-size: 1.8rem;
+        margin-top: 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #f0f0f0;
+      }
+      h3 {
+        color: #2980b9; /* Section heading color */
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+      }
+      p {
+        color: #555;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2rem;
+      }
+      th, td {
+        padding: 1rem;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+      th {
+        background-color: #eaf1f7; /* Light blue background for table headers */
+        color: #2c3e50;
+        font-weight: 600;
+      }
+      td {
+        background-color: white;
+      }
+      dl dt {
+        font-weight: 700;
+        margin-top: 1rem;
+        cursor: pointer;
+        color: #3498db;
+        padding: 12px 15px;
+        border-radius: 8px;
+        background-color: #f8fcfd;
+        border: 1px solid #e0e6ec;
+        transition: background-color 0.3s ease;
+      }
+      dl dt:hover {
+        background-color: #eef5fa;
+      }
+      dl dd {
+        margin-left: 0;
+        margin-bottom: 1rem;
+        padding: 15px;
+        border-left: 3px solid #3498db;
+        background-color: #ffffff;
+        display: none;
+        border-radius: 0 0 8px 8px;
+        font-size: 0.95rem;
+      }
+      dl dt.active + dd {
+        display: block;
+      }
+      .cta-button {
+        display: inline-block;
+        background-color: #e67e22; /* Orange for call to action */
+        color: white;
+        font-weight: 700;
+        padding: 1.2rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        margin: 1.5rem 0;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        font-size: 1.1rem;
+      }
+      .cta-button:hover {
+        background-color: #d35400;
+      }
+      .keyword-tags {
+        margin: 1.5rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .keyword-tags a {
+        background-color: #f0f4f7;
+        color: #444;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        border: 1px solid #e0e6ec;
+      }
+      .keyword-tags a:hover {
+        background-color: #e0e6ec;
+        color: #2c3e50;
+      }
+      .service-description {
+        margin-bottom: 2rem;
+        border-left: 4px solid #3498db;
+        padding-left: 1.5rem;
+        background-color: #fcfdfe;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+        color: #777;
+        background-color: #f0f0f0;
+        margin-top: 2rem;
+      }
+      .info-box {
+        background-color: #fffaf0;
+        border: 1px solid #f9e3c6;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+        color: #8a6d3b;
+      }
+      .citation {
+        display: block;
+        font-size: 0.85rem;
+        color: #999;
+        margin-top: 0.5rem;
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #333;
+      }
+      .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+      .submit-button {
+        background-color: #27ae60; /* Green submit button */
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .submit-button:hover {
+        background-color: #2ecc71;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="/">안산 인테리어 전문 업체</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#service-intro">업체 소개</a></li>
+                <li><a href="#price-guide">인테리어 견적/비용</a></li>
+                <li><a href="#portfolio">시공 사례 & 후기</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+                <li><a href="#contact">견적 문의</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section id="service-intro">
+            <h2>안산 인테리어업체 선정, 2026년 트렌드로 새롭게 시작하세요</h2>
+            <p><strong>안산인테리어업체</strong>를 찾고 계신가요? 저희 안산 인테리어 전문팀은 2026년 최신 트렌드를 반영하여 고객님의 주거 공간과 상업 공간을 새롭게 디자인합니다. <strong>안산 아파트 리모델링</strong>부터 <strong>안산 주택 인테리어</strong>, 상가 인테리어까지, 안산 지역 맞춤형 솔루션을 제공하며 합리적인 <strong>안산 인테리어 견적</strong>으로 만족스러운 결과를 약속드립니다.</p>
+            <p>인테리어는 단순히 공간을 꾸미는 것을 넘어 삶의 질을 높이는 투자입니다. <strong>안산인테리어업체 추천</strong>을 검색하는 많은 분들이 저희를 선택하는 이유는 명확한 소통과 투명한 공사 과정, 그리고 뛰어난 사후 관리 때문입니다. <strong>안산 상록구 인테리어</strong>, <strong>안산 단원구 인테리어</strong> 등 안산 전 지역을 아우르며, 고객님의 예산에 맞는 최적의 <strong>인테리어 비용</strong>을 제시합니다.</p>
+
+            <div class="keyword-tags" aria-label="연관 키워드">
+                <a href="#price-guide">안산인테리어비용</a>
+                <a href="#service-details">안산아파트리모델링</a>
+                <a href="#service-details">안산주택인테리어</a>
+                <a href="#portfolio">안산인테리어내돈내산후기</a>
+                <a href="#price-guide">인테리어견적비교</a>
+                <a href="#service-details">안산상가인테리어</a>
+                <a href="#contact">안산인테리어견적문의</a>
+                <a href="#service-details">안산부분인테리어</a>
+                <a href="#price-guide">안산인테리어저렴한곳</a>
+                <a href="#price-guide">인테리어평당가격</a>
+            </div>
+        </section>
+
+        <section id="service-details">
+            <h2>안산 맞춤형 인테리어 서비스 종류 및 시공 범위</h2>
+            <p>저희 업체는 고객님의 요구와 예산에 맞춰 다양한 인테리어 시공을 진행합니다. 단순히 싼곳을 찾는 것보다, 전문적인 시공 능력을 갖춘 <strong>안산 인테리어 업체</strong>와 함께하는 것이 중요합니다. 시공 후 A/S 및 책임 보험 가입 여부도 꼼꼼히 확인하세요. 저희는 책임감 있는 시공을 위해 항상 노력합니다.</p>
+
+            <div class="service-description">
+                <h3>1. 안산 아파트 전체 리모델링 (Full Remodeling)</h3>
+                <p><strong>안산 아파트 인테리어</strong>의 가장 보편적인 형태입니다. 구축 아파트의 경우 노후된 배관, 전기 시설, 단열 문제를 해결하는 것이 필수적입니다. 단순히 겉모습만 바꾸는 것이 아니라, 2026년 주택법에 따른 에너지 효율 개선까지 고려한 시공을 제안합니다. <strong>안산 초지동 인테리어</strong>, <strong>고잔동 인테리어</strong>, <strong>중앙동 인테리어</strong> 등 안산의 주요 아파트 단지 특성을 잘 이해하고 있습니다.</p>
+                <p><strong>장점:</strong> 공간 전체의 통일감 있는 디자인, 기능적인 개선, 단열 및 방음 성능 향상. <br><strong>단점:</strong> 상대적으로 높은 <strong>인테리어 비용</strong>과 긴 공사 기간.</p>
+            </div>
+            <div class="service-description">
+                <h3>2. 안산 부분 인테리어 시공 (Partial Remodeling)</h3>
+                <p>전체 리모델링은 부담스럽지만 특정 공간의 변화를 원하는 고객님을 위한 서비스입니다. <strong>안산 도배/장판</strong>, <strong>안산 샷시(창호) 교체</strong>, <strong>싱크대 및 주방 리모델링</strong>, <strong>욕실 리모델링</strong> 등이 대표적입니다. <strong>안산 반포장이사</strong>처럼 실속 있는 인테리어를 원할 때 적합하며, <strong>안산 인테리어 비용</strong>을 절감할 수 있는 좋은 방법입니다. <strong>안산 선부동 인테리어</strong>나 <strong>본오동 인테리어</strong>와 같이 낡은 아파트가 많은 지역에서 많이 찾는 서비스입니다.</p>
+                <p><strong>장점:</strong> 합리적인 <strong>인테리어 가격</strong>으로 필요한 부분만 개선 가능. 공사 기간이 짧아 부담이 적음. <br><strong>단점:</strong> 전체적인 조화에 어려움이 있을 수 있어 전문적인 디자인 조언 필요.</p>
+            </div>
+            <div class="service-description">
+                <h3>3. 안산 상업 공간 인테리어 (Commercial Interior)</h3>
+                <p>카페, 식당, 사무실, 학원 등 상업 시설의 목적에 맞는 컨셉 디자인과 시공을 제공합니다. <strong>안산 상가 인테리어</strong>는 고객 유치와 매출 증진에 직결되므로, 트렌드를 반영한 디자인과 효율적인 공간 배치가 중요합니다. <strong>안산 중앙역 인테리어</strong> 등 유동인구가 많은 지역의 상가 인테리어 경험이 풍부합니다.</p>
+                <p><strong>장점:</strong> 매출 증진에 기여하는 차별화된 컨셉 제공. 효율적인 동선 설계. <br><strong>단점:</strong> 주거 공간과 달리 영업을 위한 빠른 공기 준수 필요.</p>
+            </div>
+        </section>
+
+        <section id="price-guide">
+            <h2>안산 인테리어 비용 안내: 2026년 최신 견적 가이드</h2>
+            <p><strong>안산 인테리어 비용</strong>은 시공 면적, 자재 등급, 공사 범위, 철거 난이도에 따라 크게 달라집니다. '평당 얼마인가요?'라는 질문이 많지만, <strong>안산인테리어견적</strong>은 반드시 현장 방문을 통한 정확한 상담이 필수입니다. <strong>안산 인테리어 평균 비용</strong>은 2026년 자재값 및 인건비 상승으로 인해 과거보다 높아지는 추세입니다. 아래 표는 대략적인 <strong>인테리어 예상 비용</strong>을 안내합니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>서비스 종류</th>
+                        <th>평수 (공급면적)</th>
+                        <th>대략적인 비용 (VAT 별도)</th>
+                        <th>참고 사항</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>아파트 전체 리모델링</strong></td>
+                        <td>20평대 (66㎡~82㎡)</td>
+                        <td>1,800만원 ~ 3,000만원</td>
+                        <td>샷시 교체, 욕실 2개 포함 시 금액 상승</td>
+                    </tr>
+                    <tr>
+                        <td><strong>아파트 전체 리모델링</strong></td>
+                        <td>30평대 (99㎡~115㎡)</td>
+                        <td>2,500만원 ~ 4,500만원</td>
+                        <td>브랜드 자재(LX하우시스, 한샘) 선택 시 추가 비용 발생</td>
+                    </tr>
+                    <tr>
+                        <td><strong>부분 인테리어 (주방)</strong></td>
+                        <td>-</td>
+                        <td>400만원 ~ 800만원</td>
+                        <td>싱크대 교체, 타일 시공, 상하부장 등 범위에 따라 상이</td>
+                    </tr>
+                    <tr>
+                        <td><strong>부분 인테리어 (욕실 1개)</strong></td>
+                        <td>-</td>
+                        <td>250만원 ~ 400만원</td>
+                        <td>방수, 타일, 위생도기, 수전 등 시공 범위에 따라 상이</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>인테리어 비용 절감 팁: 싼곳과 저렴한곳의 차이</h4>
+                <p>무조건 <strong>안산 인테리어 저렴한곳</strong>만 찾다 보면 부실 시공의 위험에 노출될 수 있습니다. <strong>싼곳</strong>과 <strong>가성비 좋은곳</strong>은 다릅니다. 비용 절감을 위한 현명한 방법은 ① 시공 범위 명확화(불필요한 공사 제외), ② 자재 등급 하향 조정(수입산 대신 국산 브랜드), ③ 철거 범위 최소화(살릴 수 있는 부분 보존)입니다. <strong>인테리어 견적 비교</strong> 시 최종 견적 외 추가 비용 발생 가능 여부를 꼭 확인하세요.</p>
+            </div>
+
+            <p><strong>참고 외부 자료:</strong> 인테리어 계약 시 소비자 보호 지침 (<a href="https://www.kca.go.kr/home/main.do" target="_blank">한국소비자원</a>)</p>
+            <a href="#contact" class="cta-button" aria-label="안산 인테리어 무료 견적 문의하기">지금 바로 무료 견적 받기</a>
+        </section>
+
+        <section id="portfolio">
+            <h2>안산 인테리어 시공 사례 및 내돈내산 고객 후기</h2>
+            <p><strong>안산인테리어업체</strong> 선정 시 가장 중요한 것은 실제 시공 경험과 고객 만족도입니다. 저희는 <strong>안산 월피동 인테리어</strong>, <strong>성포동 인테리어</strong>, <strong>사동 인테리어</strong> 등 안산 전 지역에서 다양한 평형대와 컨셉의 시공 사례를 보유하고 있습니다. 고객님의 <strong>내돈내산 인테리어 후기</strong>를 통해 저희 업체의 전문성을 확인하세요.</p>
+            <div class="service-description">
+                <p><strong>고객 후기:</strong> "이사 날짜에 맞춰 꼼꼼하게 진행해주셨습니다. 특히 <strong>안산 포장이사</strong> 후 인테리어까지 한 번에 진행할 수 있어서 편리했습니다. <strong>안산 인테리어 추천</strong>합니다." - <span>안산시 단원구 고잔동 김○○ 고객님</span></p>
+                <p><strong>고객 후기:</strong> "여러 <strong>안산 인테리어 업체</strong>와 <strong>견적 비교</strong>를 했지만, 이곳만큼 투명하게 비용을 공개하고 친절하게 상담해주는 곳이 없었습니다. <strong>안산 인테리어 가격</strong>에 대한 신뢰가 생겼습니다." - <span>안산시 상록구 이동 박○○ 고객님</span></p>
+            </div>
+            <p>저희 업체는 <strong>안산 인테리어 순위</strong>를 자체적으로 높이기 위해 노력하기보다, 고객 한 분 한 분의 만족을 최우선으로 생각합니다. <a href="https://yourdomain.com/portfolio" target="_blank">전체 포트폴리오 보기</a></p>
+        </section>
+
+        <section id="faq">
+            <h2>안산 인테리어 자주 묻는 질문 (FAQ)</h2>
+            <p>인테리어 공사 전, 고객님들이 가장 궁금해하시는 질문들을 모았습니다. <strong>인테리어 장단점</strong> 비교, <strong>인테리어 차이점</strong> 문의 등 다양한 궁금증을 해결해 드립니다.</p>
+            <dl>
+                <dt tabindex="0" aria-expanded="false">Q1. 인테리어 견적은 어떻게 받나요? 방문 견적이 필수인가요?</dt>
+                <dd>A. 네, 정확한 <strong>안산 인테리어 견적</strong>을 위해서는 현장 방문이 필수입니다. 단순히 평수만으로는 샷시 상태, 배관 노후도, 철거 난이도 등을 알 수 없습니다. 현장에서 고객님의 요구사항을 반영하여 정확한 <strong>인테리어 금액</strong>을 산출해 드립니다. 견적 상담은 무료로 진행됩니다.</dd>
+                <dt tabindex="0" aria-expanded="false">Q2. 인테리어 공사 기간은 얼마나 걸리나요? 공사 중 거주가 가능한가요?</dt>
+                <dd>A. 공사 기간은 범위에 따라 달라지며, <strong>안산 아파트 전체 리모델링</strong>(30평대 기준)의 경우 보통 3주에서 4주 정도 소요됩니다. 부분 인테리어는 1~2주 내로 완료됩니다. 전체 공사 시에는 거주가 불가능하며, 부분 공사 시에는 협의를 통해 거주하며 진행할 수도 있습니다.</dd>
+                <dt tabindex="0" aria-expanded="false">Q3. <strong>안산인테리어업체</strong> 선정 시 주의사항은 무엇인가요? <strong>싼곳</strong>을 고르면 안 되나요?</dt>
+                <dd>A. <strong>안산 인테리어업체</strong> 선정 시 <strong>인테리어 가격</strong>만 보고 <strong>저렴한곳</strong>을 선택하면 부실 시공의 위험이 있습니다. ① 사업자 등록증 및 전문 건설업 면허 보유 여부, ② A/S 기간 보증 여부, ③ 시공 경험 등을 확인하세요. 공사 전에 계약서에 명시된 내용(<a href="https://www.law.go.kr/법령/주택법" target="_blank">주택법 등</a>)을 꼼꼼히 체크해야 합니다. <span class="citation">(참고: 건설산업기본법 시행령 제7조)</span></dd>
+                <dt tabindex="0" aria-expanded="false">Q4. 인테리어 공사 중 추가 비용이 발생할 수 있나요?</dt>
+                <dd>A. 사전 견적에 포함되지 않은 예측 불가능한 변수(예: 철거 중 예상치 못한 배관 파손, 벽체 구조 변경 시 보강 등)로 인해 추가 비용이 발생할 수 있습니다. 저희는 계약 전 모든 가능성을 투명하게 안내하고, 추가 비용 발생 시 고객님과 반드시 협의 후 진행합니다. <a href="https://www.naic.co.kr/" target="_blank">한국건설안전공단</a>의 자료를 참고하여 안전한 시공을 최우선으로 합니다.</dd>
+                <dt tabindex="0" aria-expanded="false">Q5. 2026년 인테리어 트렌드에는 어떤 것이 있나요?</dt>
+                <dd>A. 2026년에는 '지속 가능한 인테리어'와 '스마트 홈 인테리어'가 큰 흐름입니다. 친환경 자재 사용과 함께, AI 스피커, 스마트 조명, IoT 가전 등이 인테리어에 통합되는 추세입니다. <a href="https://namu.wiki/w/%EC%9D%B8%ED%85%8C%EB%A6%AC%EC%96%B4" target="_blank">나무위키</a>의 인테리어 트렌드 분석을 참고하여 최신 디자인을 제안해 드립니다. <span class="citation">(참고: 2026년 인테리어 트렌드 보고서)</span></dd>
+            </dl>
+        </section>
+
+        <section id="contact">
+            <h2>안산 인테리어 견적 문의 및 방문 상담 신청</h2>
+            <p><strong>안산 아파트 리모델링</strong>을 고민하고 계신가요? <strong>안산인테리어업체</strong> 선정에 대한 해답은 바로 여기 있습니다. <strong>안산 인테리어 비용</strong>부터 디자인 컨설팅까지, 전문가가 친절하게 상담해 드립니다. 아래 양식을 작성해 주시면 신속하게 연락드리겠습니다.</p>
+            <form action="#" method="post" onsubmit="alert('상담 신청이 완료되었습니다. 24시간 이내로 연락드리겠습니다.'); return false;">
+                <div class="form-group">
+                    <label for="name">성함</label>
+                    <input type="text" id="name" name="name" required placeholder="예: 홍길동">
+                </div>
+                <div class="form-group">
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="예: 010-1234-5678">
+                </div>
+                <div class="form-group">
+                    <label for="area">이사/시공 예정 지역 (안산 내)</label>
+                    <select id="area" name="area" required>
+                        <option value="">지역 선택</option>
+                        <option value="고잔동">고잔동</option>
+                        <option value="초지동">초지동</option>
+                        <option value="선부동">선부동</option>
+                        <option value="본오동">본오동</option>
+                        <option value="사동">사동</option>
+                        <option value="이동">이동</option>
+                        <option value="중앙동">중앙동</option>
+                        <option value="성포동">성포동</option>
+                        <option value="월피동">월피동</option>
+                        <option value="와동">와동</option>
+                        <option value="부곡동">부곡동</option>
+                        <option value="기타 안산 지역">기타 안산 지역</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="size">평형대</label>
+                    <input type="number" id="size" name="size" required placeholder="예: 32 (숫자만 입력)">
+                </div>
+                <div class="form-group">
+                    <label for="type">시공 종류</label>
+                    <select id="type" name="type" required>
+                        <option value="">시공 종류 선택</option>
+                        <option value="전체 리모델링">전체 리모델링</option>
+                        <option value="부분 리모델링">부분 리모델링</option>
+                        <option value="상업 공간 인테리어">상업 공간 인테리어</option>
+                        <option value="도배/장판">도배/장판</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="details">문의 상세 내용</label>
+                    <textarea id="details" name="details" rows="5" placeholder="궁금한 점이나 특별히 원하는 디자인 컨셉을 자유롭게 적어주세요."></textarea>
+                </div>
+                <button type="submit" class="submit-button">상담 신청하기</button>
+            </form>
+            <p style="text-align: center; margin-top: 2rem;">전화 문의: <strong>010-1234-5678</strong></p>
+        </section>
+
+        <section id="footer-links" style="padding: 1rem 2rem;">
+            <h3>안산 지역별 인테리어 키워드 (SEO 최적화)</h3>
+            <div class="keyword-tags">
+                <a href="#">안산시 상록구 인테리어</a>
+                <a href="#">안산시 단원구 인테리어</a>
+                <a href="#">안산 고잔동 인테리어</a>
+                <a href="#">안산 초지동 인테리어</a>
+                <a href="#">안산 선부동 인테리어</a>
+                <a href="#">안산 중앙동 인테리어</a>
+                <a href="#">안산 본오동 인테리어</a>
+                <a href="#">안산 사동 인테리어</a>
+                <a href="#">안산 일동 인테리어</a>
+                <a href="#">안산 성포동 인테리어</a>
+                <a href="#">안산 월피동 인테리어</a>
+                <a href="#">안산 부곡동 인테리어</a>
+                <a href="#">안산 와동 인테리어</a>
+                <a href="#">안산 해양동 인테리어</a>
+                <a href="#">안산 호수동 인테리어</a>
+                <a href="#">안산 신길동 인테리어</a>
+                <a href="#">안산 원곡동 인테리어</a>
+                <a href="#">안산 백운동 인테리어</a>
+                <a href="#">안산 대부동 인테리어</a>
+                <a href="#">안산 주택 리모델링</a>
+                <a href="#">안산 빌라 인테리어</a>
+                <a href="#">안산 상가 리모델링</a>
+                <a href="#">안산 사무실 인테리어</a>
+                <a href="#">안산 카페 인테리어</a>
+                <a href="#">안산 도배 장판</a>
+                <a href="#">안산 샷시 교체 비용</a>
+                <a href="#">안산 싱크대 교체</a>
+                <a href="#">안산 욕실 리모델링</a>
+                <a href="#">안산 인테리어 전문 업체</a>
+                <a href="#">안산 인테리어 견적 비교</a>
+                <a href="#">인테리어 내돈내산 후기</a>
+                <a href="#">2026 인테리어 트렌드</a>
+            </div>
+        </section>
     </main>
-  </body>
-</html>
+
+    <script>
+      // FAQ 아코디언 기능 (접기/펼치기)
+      document.querySelectorAll('dl dt').forEach((dt) => {
+        dt.addEventListener('click', () => {
+          dt.classList.toggle('active');
+          let expanded = dt.getAttribute('aria-expanded') === 'true';
+          dt.setAttribute('aria-expanded', !expanded);
+        });
+        dt.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            dt.click();
+          }
+        });
+      });
+    </script>
+
+  
